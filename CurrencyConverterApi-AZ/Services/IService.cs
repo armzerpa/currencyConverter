@@ -8,7 +8,7 @@ namespace CurrencyConverterApi_AZ.Services
         Task<Currency> GetById(string id);
         Task<Currency> GetList();
         Task<Currency> GetHistoric(int days);
-        Task Create(Currency currency);
+        Task<bool> Create(Currency currency);
     }
 }
 

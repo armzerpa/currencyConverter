@@ -70,8 +70,14 @@ public class CurrenciesController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Currency currency)
     {
-        await _service.Create(currency);
-        return Ok("created");
+        var res = await _service.Create(currency);
+        if (res)
+        {
+            return StatusCode(201, currency);
+        } else
+        {
+            return StatusCode(500, "internal server");
+        }
     }
 }
 

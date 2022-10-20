@@ -1,4 +1,6 @@
-﻿namespace CurrencyConverterApi_AZ.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace CurrencyConverterApi_AZ.Models;
 
 public class Currency
 {
@@ -8,6 +10,10 @@ public class Currency
         this.Date = exchange.Date;
         this.Exchanges = exchange.Rates;
     }
+
+    [JsonConstructor]
+    public Currency() { }
+
     public string BaseCurrency { get; set; }
     public string Date { get; set; }
     public Dictionary<string, double> Exchanges { get; set; }

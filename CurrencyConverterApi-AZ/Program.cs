@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddScoped<IService, CurrencyService>();
+builder.Services.AddTransient<IRepository, RepositoryMock>();
 builder.Logging.AddJsonConsole();
 
 var app = builder.Build();

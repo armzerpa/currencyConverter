@@ -13,15 +13,26 @@ namespace CurrencyConverterApi_AZ.Services
         private const string baseSymbol = "EUR";
         private readonly HttpClient _client;
 
-        public CurrencyService()
+        private readonly IRepository _repo;
+
+        public CurrencyService(IRepository repo)
         {
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Add("apikey", apiKey);
+
+            _repo = repo;
         }
 
-        Task IService.Create(Currency currency)
+        async Task<bool> IService.Create(Currency currency)
         {
-            throw new NotImplementedException();
+            try
+            {
+                bool result = _repo.Save(currency).Result;
+                return result;
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         async Task<Currency> IService.GetById(string id)
