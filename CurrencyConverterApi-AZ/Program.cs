@@ -1,4 +1,6 @@
-﻿using CurrencyConverterApi_AZ.Services;
+﻿using CurrencyConverterApi_AZ.Helpers;
+using CurrencyConverterApi_AZ.Repository;
+using CurrencyConverterApi_AZ.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddScoped<IService, CurrencyService>();
+builder.Services.AddScoped<IThirdPartyHelper, ExchangeApiHelper>();
 builder.Services.AddTransient<IRepository, RepositoryMock>();
 builder.Logging.AddJsonConsole();
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using CurrencyConverterApi_AZ.Models;
 
-namespace CurrencyConverterApi_AZ.Services
+namespace CurrencyConverterApi_AZ.Repository
 {
     public class RepositoryMock : IRepository
     {
