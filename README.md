@@ -1,17 +1,16 @@
 # currencyConverter
 
 Armando Zerpa
+For questions: ajzerpa@gmail.com
+
+It have swagger for the endpoints.
 
 
-It have swagger for the endpoints
-
-
----------
 Basic Auth:
 username: admin
-password: adming
-------------
+password: admin
 
+----------------
 some simple curls for testing
 
 curl --location --request GET 'http://localhost:5188/api/currencies/usd'
@@ -33,3 +32,5 @@ curl --location --request POST 'http://localhost:5188/api/currencies' \
         "EUR": 2.0
     }
 }'
+
+
