@@ -6,6 +6,12 @@ Armando Zerpa
 It have swagger for the endpoints
 
 
+---------
+Basic Auth:
+username: admin
+password: adming
+------------
+
 some simple curls for testing
 
 curl --location --request GET 'http://localhost:5188/api/currencies/usd'
