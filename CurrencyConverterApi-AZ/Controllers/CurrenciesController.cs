@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CurrencyConverterApi_AZ.Models;
 using CurrencyConverterApi_AZ.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurrenciesConverterApi_AZ.Controllers;
@@ -23,6 +24,7 @@ public class CurrenciesController : ControllerBase
         _service = service;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Get()
     {
@@ -38,6 +40,7 @@ public class CurrenciesController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(string id)
     {
@@ -52,6 +55,7 @@ public class CurrenciesController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpGet("historic/{days}")]
     public async Task<IActionResult> Get(int days)
     {
@@ -67,6 +71,7 @@ public class CurrenciesController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Post(Currency currency)
     {

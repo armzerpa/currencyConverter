@@ -18,11 +18,13 @@
     <None Remove="Newtonsoft.Json" />
     <None Remove="Repository\" />
     <None Remove="Helpers\" />
+    <None Remove="Handlers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Repository\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Handlers\" />
   </ItemGroup>
 </Project>

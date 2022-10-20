@@ -1,6 +1,7 @@
 ﻿using CurrencyConverterApi_AZ.Helpers;
 using CurrencyConverterApi_AZ.Repository;
 using CurrencyConverterApi_AZ.Services;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>
+                ("BasicAuthentication", null);
+builder.Services.AddAuthorization();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddScoped<IService, CurrencyService>();
 builder.Services.AddScoped<IThirdPartyHelper, ExchangeApiHelper>();
@@ -25,6 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
